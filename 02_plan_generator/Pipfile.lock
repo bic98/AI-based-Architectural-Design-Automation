@@ -1,0 +1,47 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "495a19dddc1dcfa2af36ef06ffe4fca00d1281fc591f66428dc7f8476a3da893"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.11"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "gh-io-stubs": {
+            "hashes": [
+                "sha256:557293ee6374ea73b0f8c4cf4ec3fd25c4b2b11a315ab9e3c6da6db1c8de62f5"
+            ],
+            "version": "==7.7.21140"
+        },
+        "gh-util-stubs": {
+            "hashes": [
+                "sha256:f0d47d24698a16adfb868a5cff40f3a9bff02c4fb4f1eb5a3cbd8cde734b9062"
+            ],
+            "version": "==7.7.21140"
+        },
+        "grasshopper-stubs": {
+            "hashes": [
+                "sha256:9f9aec05041f16cb26aa3942c3f4c51198bf012f2b69f605dac0a2a3be015a4c"
+            ],
+            "index": "pypi",
+            "version": "==7.7.21140"
+        },
+        "rhino-stubs": {
+            "hashes": [
+                "sha256:4df14e461de5493d6fa2e110c81cebdf79f8aebc0506f29e0ca968967aff350b"
+            ],
+            "index": "pypi",
+            "version": "==7.7.21140"
+        }
+    },
+    "develop": {}
+}
