@@ -32,15 +32,17 @@ class Floorplan:
     def distribution_network(self):
         cnt = self.origin
         print(cnt)
-        nums = len(self.room_names)
+        k = len(self.room_names)
+        nums = list(range(k))
+        random.shuffle(nums)
         lines = []
         locations = []
-        rotation = 2 * math.pi / nums;
-        for num in range(nums):
-            r = nums * 15
-            pt = rg.Point3d(cnt.X + random.uniform(r/2, r) * math.cos(rotation*num), cnt.Y + random.uniform(r/2, r) * math.sin(rotation*num),0)
+        rotation = 2 * math.pi / k;
+        for num in nums:
+            r = k * 15
+            pt = rg.Point3d(cnt.X + random.uniform(0, r) * math.cos(rotation*num), cnt.Y + random.uniform(0, r) * math.sin(rotation*num),0)
             pt_plane = rg.Plane(pt, rg.Vector3d.ZAxis)
-            pt_plane.Rotate(0, rg.Vector3d.ZAxis, pt_plane.Origin)
+            pt_plane.Rotate(random.uniform(0, 2), rg.Vector3d.ZAxis, pt_plane.Origin)
             locations.append(pt_plane)
             line = rg.Line(cnt, pt)
             lines.append(line)
