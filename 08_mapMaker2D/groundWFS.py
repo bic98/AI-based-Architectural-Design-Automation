@@ -16,19 +16,16 @@ vworld_key = "C492AE9A-1701-393D-913A-D080B66D18CC"
 
 def terrain(ymin,xmin,ymax,xmax, typeCol, vworld_key) :
     params = {
-        "SERVICE": "WFS",
-        "REQUEST": "GetFeature",
+
         "TYPENAME": typeCol,
         "BBOX": "{0:.10f},{1:.10f},{2:.10f},{3:.10f}".format(ymin, xmin, ymax, xmax),
-        "VERSION": "2.0.0",
         "MAXFEATURES": "1000",
         "SRSNAME": "EPSG:4326",
         "OUTPUT": "application/json",
-        "EXCEPTIONS": "text/xml",
         "KEY": vworld_key
     }
 
-    apiurl = "https://api.vworld.kr/req/wfs"
+    apiurl = "https://api.vworld.kr/ned/wfs/getLandCharacteristicsWFS"
 
     # params 딕셔너리를 URL 쿼리 스트링으로 변환
     query_string = "&".join([f"{key}={value}" for key, value in params.items()])
@@ -54,4 +51,4 @@ xmin, ymin = AddressToCoord(input_address1, vworld_key)
 xmax, ymax = AddressToCoord(input_address2, vworld_key)
 
 
-print(terrain(ymin,xmin, ymax, xmax,"lt_c_spbd", vworld_key))
+print(terrain(ymin,xmin, ymax, xmax,"dt_d194", vworld_key))
