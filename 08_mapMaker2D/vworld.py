@@ -20,5 +20,3 @@ def get_adress(input_address, vworld_key) :
         return response.json()
     else : 
         return "value error!"
-
-print(get_adress("경기도 수원시 팔달구 효원로308번길 16 (인계동, 한화 꿈에그린 파크)", vworld_key))
