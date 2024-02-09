@@ -22,7 +22,7 @@ def terrain(ymin,xmin,ymax,xmax, typeCol, vworld_key) :
         "BBOX": "{0:.10f},{1:.10f},{2:.10f},{3:.10f}".format(ymin, xmin, ymax, xmax),
         "VERSION": "2.0.0",
         "MAXFEATURES": "1000",
-        "SRSNAME": "EPSG:4326",
+        "SRSNAME": "EPSG:5179",
         "OUTPUT": "application/json",
         "EXCEPTIONS": "text/xml",
         "KEY": vworld_key
@@ -48,10 +48,33 @@ def AddressToCoord(input_address, vworld_key):
     y_coord = response_data['response']['result']['point']['y']
     return float(x_coord), float(y_coord)
 
-input_address1 = "강원 춘천시 동부시장길 8"
-input_address2 = "강원 춘천시 삭주로 77"
+def divideMap(t, ymin,xmin, ymax, xmax) : 
+    rectangles = []
+    current_x = xmin
+    while current_x < xmax:
+        next_x = min(current_x + t, xmax)
+        current_y = ymin
+        while current_y < ymax:
+            next_y = min(current_y + t, ymax)
+            rectangles.append((current_y, current_x, next_y, next_x))
+            current_y += t
+        current_x += t
+    return rectangles
+
+input_address1 = "강원 춘천시 충혼길 55 남춘천여자중학교"
+input_address2 = "강원 춘천시 서부대성로 257 강원대학교사범대학부설고등학교"
 xmin, ymin = AddressToCoord(input_address1, vworld_key)
 xmax, ymax = AddressToCoord(input_address2, vworld_key)
+if(ymin > ymax) : ymin, ymax = ymax, ymin
+if(xmin > xmax) : xmin, xmax = xmax, xmin
 
+test = divideMap(0.005, ymin,xmin, ymax, xmax)
 
-print(terrain(ymin,xmin, ymax, xmax,"lt_c_spbd", vworld_key))
+for i in test : 
+    for j in i : 
+        print(j, end = ' ')
+    print('\n')
+
+print(ymin,xmin, ymax, xmax)
+print(len(test))
+#print(terrain(ymin,xmin, ymax, xmax,"lt_c_spbd", vworld_key))
