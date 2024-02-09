@@ -11,7 +11,7 @@ __version__ = "2024.02.08"
 import requests
 import json
 
-vworld_key = "C492AE9A-1701-393D-913A-D080B66D18CC"
+vworld_key = "valid - key"
 
 
 def terrain(ymin,xmin,ymax,xmax, typeCol, vworld_key) :

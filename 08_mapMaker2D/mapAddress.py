@@ -15,7 +15,7 @@ import json
 import clr
 clr.AddReference('System.Web.Extensions')
 from System.Web.Script.Serialization import JavaScriptSerializer
-vworld_key = "C492AE9A-1701-393D-913A-D080B66D18CC"
+vworld_key = "valid - key"
 
 def read(apiurl) : 
     request = WebRequest.Create(apiurl)

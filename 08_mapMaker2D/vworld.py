@@ -1,4 +1,4 @@
-vworld_key = "C492AE9A-1701-393D-913A-D080B66D18CC"
+vworld_key = "valid - key"
 
 import folium
 import requests
